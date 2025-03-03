@@ -4,11 +4,6 @@ import mediapipe as mp
 import numpy as np
 import json
 
-# Install libraries (this won't run in Streamlit Cloud, but helps in Colab)
-# Remove this section when deploying
-st.write("Installing dependencies...")
-!pip install opencv-python mediapipe numpy
-
 # Set up MediaPipe Pose
 mp_pose = mp.solutions.pose
 pose = mp_pose.Pose()
@@ -77,7 +72,7 @@ st.write("Upload your video and see how you stack up against a pro athlete.")
 # Upload user video
 user_video = st.file_uploader("Upload Your Video", type=["mp4"])
 
-# Load pro data (you'll need to upload this manually for now)
+# Load pro data
 pro_data_path = "pro_movement_data.json"
 try:
     with open(pro_data_path, 'r') as f:
